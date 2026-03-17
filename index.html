@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Style/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <title>Portafolio</title>
+</head>
+<body>
+
+
+<canvas id="fondo"></canvas>
+
+
+
+<script>
+  
+
+
+  
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+
+const canvas = document.getElementById("fondo");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let t = 0;
+
+function draw() {
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.strokeStyle = "rgba(255,255,255,0.05)"; // MUY suave
+
+    for (let y = 0; y < 8; y++) { // pocas líneas
+        ctx.beginPath();
+        for (let x = 0; x < canvas.width; x += 20) {
+            let wave = Math.sin(x * 0.005 + t + y) * 5; // muy pequeña
+            ctx.lineTo(x, canvas.height/2 + wave + y * 20);
+        }
+        ctx.stroke();
+    }
+
+    t += 0.005; // MUY lento
+    requestAnimationFrame(draw);
+}
+
+draw();
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+
+
+  
+</script>
+
+
+
+    <input type="checkbox" id="celular">
+    <Header id="cabeza">
+        <a href="#main" class="Links-cabeza">Quien soy</a>
+        <a href="#bloque-tecnologias" class="Links-cabeza">Tecnologias</a>
+        <a href="#proyectos" class="Links-cabeza">Proyectos Grandes</a>
+        <a href="" class="Links-cabeza">Contacto</a>
+       
+    </Header>
+
+<div id="main"> 
+
+ <img src="Media\FT.png" alt="Foto" id="FT">   
+<div class="Nombre-es">
+  <p id="nombre">Jonathan Esteban </p>
+</div>
+
+<p id="inf">Junior Developer</p>
+<p id="ac">Técnico Profesional en Programación de Software con experiencia práctica en desarrollo web, <br> ciberseguridad aplicada y entornos Linux. Manejo avanzado de ofimática y metodologías ágiles. </p>
+
+
+<div class="contenedor-botones">
+  <a href="https://www.linkedin.com/in/tu-usuario" target="_blank" class="boton-linkedin">
+    <i class="fab fa-linkedin"></i> Conectar
+  </a>
+
+  <a href="ruta/a/tu-cv.pdf" download class="boton-cv">
+    <i class="fas fa-file-download"></i> Descargar CV
+  </a>
+</div>
+
+</div>
+
+
+
+<div class="tec">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<section class="bloque-tecnologias" id="bloque-tecnologias">
+  <h2 class="Titulo-tecn">Tecnologías</h2>
+  
+  <div class="carrusel-ventana">
+    <div class="carrusel-pista">
+      <div class="imagen-tecn"><i class="devicon-html5-plain"></i><span>HTML</span></div>
+      <div class="i"><i class="devicon-css3-plain"></i><span>CSS</span></div>
+      <div class="imagen-tecn"><i class="devicon-php-plain"></i><span>PHP</span></div>
+      <div class="imagen-tecn"><i class="devicon-python-plain"></i><span>Python</span></div>
+      <div class="imagen-tecn"><i class="devicon-mysql-plain"></i><span>SQL</span></div>
+      <div class="imagen-tecn"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
+      <div class="imagen-tecn"><i class="devicon-laravel-original"></i><span>Laravel</span></div>
+      <div class="imagen-tecn"><i class="devicon-git-plain"></i><span>Git</span></div>
+      <div class="imagen-tecn"><i class="devicon-github-original"></i><span>GitHub</span></div>
+      <div class="imagen-tecn"><i class="devicon-virtualbox-plain"></i><span>VirtualBox</span></div>
+      
+      <div class="imagen-tecn"><i class="devicon-html5-plain"></i><span>HTML</span></div>
+      <div class="imagen-tecn"><i class="devicon-css3-plain"></i><span>CSS</span></div>
+      <div class="imagen-tecn"><i class="devicon-php-plain"></i><span>PHP</span></div>
+      <div class="imagen-tecn"><i class="devicon-python-plain"></i><span>Python</span></div>
+      <div class="imagen-tecn"><i class="devicon-mysql-plain"></i><span>SQL</span></div>
+      <div class="imagen-tecn"><i class="devicon-javascript-plain"></i><span>JavaScript</span></div>
+      <div class="imagen-tecn"><i class="devicon-laravel-original"></i><span>Laravel</span></div>
+      <div class="imagen-tecn"><i class="devicon-git-plain"></i><span>Git</span></div>
+      <div class="imagen-tecn"><i class="devicon-github-original"></i><span>GitHub</span></div>
+      <div class="imagen-tecn"><i class="devicon-virtualbox-plain"></i><span>VirtualBox</span></div>
+    </div>
+  </div>
+</section>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="proyectos" id="proyectos">
+  <h2 class="Titulo-tecn">Mis Proyectos</h2>
+  
+  <div class="contenedor-proyecto">
+    <div class="caja-proyecto" onclick="this.querySelector('dialog').showModal()">
+      <img src="Media\PR_1.png" alt="Proyecto 1">
+      <span>E-commerce</span>
+      
+      <dialog class="modal-proyecto">
+        <button onclick="event.stopPropagation(); this.closest('dialog').close()">X</button>
+        <h3>E-commerce</h3>
+        <p>Desarrollé una plataforma de comercio electrónico integral, desde el inicio de sesión del usuario con almacenamiento seguro de información hasta el control total del negocio. Implementé el flujo completo de ventas con catálogo dinámico, carrito de compras, gestión de pedidos y un panel administrativo (CRUD) para el control de inventario.
+Incluí sistema de autenticación por tokens, cifrado de contraseñas mediante hashing, sanitización de datos y guardado seguro de información en base de datos, todo alineado con estándares ISO de seguridad. Automatice la comunicación con envíos masivos de correos electrónicos mediante la API de Resend.
+La plataforma fue construida con PHP, MySQL, JavaScript y Bootstrap. Como entrega final, elaboré manuales técnicos y de usuario detallados, junto con el diagrama completo del sistema, asegurando su mantenimiento y escalabilidad.</p>
+      </dialog>
+    </div>
+    
+    <div class="caja-proyecto" onclick="this.querySelector('dialog').showModal()">
+      <img src="Media\PR_2.png" alt="Proyecto 2">
+      <span>Consulta de Información</span>
+      
+      <dialog class="modal-proyecto">
+        <button onclick="event.stopPropagation(); this.closest('dialog').close()">X</button>
+        <h3>Consulta e Inteligencia de Datos</h3>
+    <p>
+      Desarrollé una plataforma web que integra información en tiempo real mediante la API de Google Cloud y APIs especializadas para el procesamiento automático de informes. Incluye una sub-versión para WordPress y arquitectura de bases de datos interconectadas.
+      <br><br>
+      Implementé un sistema con más de 9 capas de seguridad, una de las capas contiene: encriptación de info crítica, hashing de datos sensibles, 2FA interno, integridad constante y cierre de sesión automático. El resto de las capas se mantienen bajo reserva técnica.
+      <br><br>
+      Incluye automatización total de usuarios y se hizo entrega de 3 manuales completos (técnico, usuario y administración) con toda la documentación del sistema.
+    </p>
+      </dialog>
+    </div>
+  </div>
+</section>
+
+</div>
+
+
+
+</body>
+</html>
