@@ -233,6 +233,7 @@ body {
     font-family: "Courier", monospace;
     background: black;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .caja-proyecto img {
